@@ -1,0 +1,25 @@
+sudo apt-get update
+sudo apt install -y python3-pip nginx
+
+sudo vim /etc/nginx/sites-enabled/fastapi_nginx
+
+->enter this object in that file
+server {
+    listen 80;
+    server_name public_IP_of_instance;
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+    }
+}
+sudo service nginx restart
+
+
+now clone the github repo
+git clone https://github.com/hamzahcodes/customer-churn-backend.git
+
+cd customer-churn-backend
+pip3 install -r requirements.txt
+
+python3 -m uvicorn main:app
+
+Access it globally using http://public_IP_of_instance/docs

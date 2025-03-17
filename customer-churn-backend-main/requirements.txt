@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+numpy
+pandas
+scikit-learn
+pymongo
+passlib
+bcrypt
